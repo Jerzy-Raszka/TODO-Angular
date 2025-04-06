@@ -1,0 +1,5 @@
+<app-todo (newTodoEvent)="addTodo($event)"></app-todo>
+@for (todo of todoList; track todo.title) {
+  <label>{{ todo.title }}</label>
+  <input type="checkbox" [checked]="todo.isCompleted"><br>
+}
