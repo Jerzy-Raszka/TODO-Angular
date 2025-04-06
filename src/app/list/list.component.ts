@@ -1,18 +1,23 @@
-import { Component } from '@angular/core';
-import {Todo} from '../todo';
+import {Component} from '@angular/core';
+import {TodoModel} from '../todo.model';
+import {TodoComponent} from '../todo/todo.component';
+
 @Component({
   selector: 'app-list',
-  imports: [],
+  imports: [
+    TodoComponent
+  ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
+
 export class ListComponent {
 
-  todoList: Todo[] = [
+  todoList: TodoModel[] = [
     {
       id: 0,
       title: 'Kup parówki',
-      isCompleted: false,
+      isCompleted: true,
     },
     {
       id: 1,
@@ -36,5 +41,9 @@ export class ListComponent {
     },
   ];
 
+  addTodo(newTodo: TodoModel) {
+    this.todoList.push(newTodo);
+    console.log(this.todoList)
+  }
 
 }
