@@ -4,5 +4,7 @@
     [todoItem]="todoList[$index]"
     [todoIndex]="$index"
     (changeStatusEvent)="statusChange($event)"
+    (deleteTodoEvent)="deleteTodo($event)"
+    (editTodoEvent)="editTodo($event)"
   ></app-todo-item>
 }

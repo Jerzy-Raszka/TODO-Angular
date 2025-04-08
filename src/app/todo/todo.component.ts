@@ -44,4 +44,15 @@ export class TodoComponent {
   protected statusChange(index: number): void {
     this.todoList[index].completed = !this.todoList[index].completed;
   }
+
+  protected deleteTodo(index: number): void {
+    this.todoList.splice(index, 1);
+  }
+
+  protected editTodo(event: { index?: number; newLabel?: string }): void {
+    if (event.index != null && event.newLabel != null) {
+      this.todoList[event.index].title = event.newLabel;
+    }
+    console.log(this.todoList);
+  }
 }
