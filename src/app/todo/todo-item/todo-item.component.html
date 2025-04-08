@@ -1,0 +1,8 @@
+<div>
+  {{ todoItem?.title
+  }}<input
+    (click)="changeStatus(todoIndex)"
+    [checked]="todoItem?.completed"
+    type="checkbox"
+  />
+</div>

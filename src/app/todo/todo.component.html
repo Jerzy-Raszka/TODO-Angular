@@ -1,0 +1,8 @@
+<app-todo (newTodoEvent)="addTodoToList($event)"></app-todo>
+@for (todo of todoList; track $index) {
+  <app-todo-item
+    [todoItem]="todoList[$index]"
+    [todoIndex]="$index"
+    (changeStatusEvent)="statusChange($event)"
+  ></app-todo-item>
+}
