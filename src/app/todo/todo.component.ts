@@ -38,7 +38,6 @@ export class TodoComponent {
       completed: false,
     };
     this.todoList.push(newTodo);
-    console.log(this.todoList);
   }
 
   protected statusChange(index: number): void {
@@ -53,6 +52,5 @@ export class TodoComponent {
     if (event.index != null && event.newLabel != null) {
       this.todoList[event.index].title = event.newLabel;
     }
-    console.log(this.todoList);
   }
 }
