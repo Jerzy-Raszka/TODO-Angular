@@ -3,7 +3,6 @@ import { Todo } from '../../../shared/models/todo.model';
 
 @Component({
   selector: 'app-todo-item',
-  imports: [],
   templateUrl: './todo-item.component.html',
 })
 export class TodoItemComponent {

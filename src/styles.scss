@@ -1,1 +1,72 @@
-/* You can add global styles to this file, and also import other style files */
+$font-stack: Helvetica, sans-serif;
+$primary-color: #1c1c1c;
+$secondary-color: #2a2a2a;
+$hover-color: #373737;
+$font-color: #ffffff;
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-stack;
+  background-color: $primary-color;
+  color: $font-color;
+}
+
+.flex-container {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  margin: 30px;
+  width: auto;
+}
+
+app-todo {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: $secondary-color;
+}
+
+app-todo-item {
+  background-color: $secondary-color;
+  padding: 20px;
+}
+
+.checkboxes {
+  width: 30px;
+  height: 30px;
+  accent-color: $primary-color;
+}
+
+.deleteTodo {
+  background-image: url("shared/assets/icontrash.png");
+  background-color: $secondary-color;
+  background-size: cover;
+  border: none;
+  width: 35px;
+  height: 35px;
+}
+
+app-todo-item div {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  align-items: center;
+}
+
+app-todo input {
+  background-color: $hover-color;
+  border-color: $hover-color;
+  color: white;
+  padding: 0 10px;
+  margin: 0 10px;
+}
+
+app-todo button {
+  background-color: $primary-color;
+  border-color: $primary-color;
+  color: $font-color;
+  margin: 0 15px;
+  padding: 5px 10px;
+}

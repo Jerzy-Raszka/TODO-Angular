@@ -8,7 +8,8 @@
   <input
     (click)="changeStatus()"
     [checked]="todoItem.completed"
+    class="checkboxes"
     type="checkbox"
   />
-  <button (click)="deleteTodo()" type="button">Delete</button>
+  <button (click)="deleteTodo()" class="deleteTodo" type="button"></button>
 </div>
