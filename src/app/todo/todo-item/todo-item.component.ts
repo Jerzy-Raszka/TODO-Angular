@@ -7,29 +7,31 @@ import { Todo } from '../../../shared/models/todo.model';
   templateUrl: './todo-item.component.html',
 })
 export class TodoItemComponent {
-  @Input({ required: true }) todoItem: Todo | undefined;
-  @Input({ required: true }) todoIndex: number | undefined;
-  @Output() changeStatusEvent = new EventEmitter<number>();
-  @Output() deleteTodoEvent = new EventEmitter<number>();
-  @Output() editTodoEvent = new EventEmitter<{
-    index?: number;
-    newLabel?: string;
+  @Input({ required: true }) todoItem!: Todo;
+  @Input({ required: true }) todoIndex!: number;
+  @Output() handleChangeStatus = new EventEmitter<number>();
+  @Output() handleDeleteTodo = new EventEmitter<number>();
+  @Output() handleEditTodo = new EventEmitter<{
+    index: number;
+    newLabel: string;
   }>();
 
-  changeStatus(index: number | undefined): void {
-    this.changeStatusEvent.emit(index);
+  protected changeStatus(): void {
+    this.handleChangeStatus.emit(this.todoIndex);
   }
 
-  deleteTodo(index: number | undefined): void {
-    this.deleteTodoEvent.emit(index);
+  protected deleteTodo(): void {
+    this.handleDeleteTodo.emit(this.todoIndex);
   }
 
-  editTodo(index: number | undefined, event: FocusEvent): void {
-    const newName = (event.target as HTMLElement).textContent?.trim();
-    this.editTodoEvent.emit({ index: index, newLabel: newName });
+  protected editTodo(event: FocusEvent): void {
+    const newLabel = (event.target as HTMLElement).textContent?.trim();
+    if (newLabel !== undefined) {
+      this.handleEditTodo.emit({ index: this.todoIndex, newLabel });
+    }
   }
 
-  lineBreak(event: KeyboardEvent): void {
+  protected lineBreak(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
       event.preventDefault();
     }

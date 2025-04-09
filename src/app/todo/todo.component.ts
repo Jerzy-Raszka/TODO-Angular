@@ -48,9 +48,7 @@ export class TodoComponent {
     this.todoList.splice(index, 1);
   }
 
-  protected editTodo(event: { index?: number; newLabel?: string }): void {
-    if (event.index != null && event.newLabel != null) {
-      this.todoList[event.index].title = event.newLabel;
-    }
+  protected editTodo(event: { index: number; newLabel: string }): void {
+    this.todoList[event.index].title = event.newLabel;
   }
 }

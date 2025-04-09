@@ -1,14 +1,14 @@
 <div>
   <span
-    (blur)="editTodo(todoIndex, $event)"
+    (blur)="editTodo($event)"
     (keydown)="lineBreak($event)"
     contenteditable="true"
-    >{{ todoItem?.title }}</span
+    >{{ todoItem.title }}</span
   >
   <input
-    (click)="changeStatus(todoIndex)"
-    [checked]="todoItem?.completed"
+    (click)="changeStatus()"
+    [checked]="todoItem.completed"
     type="checkbox"
   />
-  <button (click)="deleteTodo(todoIndex)">Delete</button>
+  <button (click)="deleteTodo()" type="button">Delete</button>
 </div>
