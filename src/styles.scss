@@ -4,6 +4,24 @@ $secondary-color: #2a2a2a;
 $hover-color: #373737;
 $font-color: #ffffff;
 
+@mixin themed-block($pd_x, $pd_y, $mg_x, $mg_y ) {
+  background-color: $hover-color;
+  border-color: $hover-color;
+  color: $font-color;
+  padding: $pd_x $pd_y;
+  margin: $mg_x $mg_y;
+}
+
+@mixin app-todo-bg {
+  background-color: $secondary-color;
+  padding: 20px;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -24,19 +42,16 @@ body {
 }
 
 app-todo {
+  @include app-todo-bg;
   margin-bottom: 20px;
-  padding: 20px;
-  background-color: $secondary-color;
 }
 
 app-todo-item {
-  background-color: $secondary-color;
-  padding: 20px;
+  @include app-todo-bg;
 }
 
 .checkboxes {
-  width: 30px;
-  height: 30px;
+  @include size(30px, 30px);
   accent-color: $primary-color;
 }
 
@@ -45,8 +60,7 @@ app-todo-item {
   background-color: $secondary-color;
   background-size: cover;
   border: none;
-  width: 35px;
-  height: 35px;
+  @include size(35px, 35px);
 }
 
 app-todo-item div {
@@ -56,17 +70,9 @@ app-todo-item div {
 }
 
 app-todo input {
-  background-color: $hover-color;
-  border-color: $hover-color;
-  color: white;
-  padding: 0 10px;
-  margin: 0 10px;
+  @include themed-block(0px, 10px, 0px, 10px);
 }
 
 app-todo button {
-  background-color: $primary-color;
-  border-color: $primary-color;
-  color: $font-color;
-  margin: 0 15px;
-  padding: 5px 10px;
+  @include themed-block(0px, 15px, 5px, 10px);
 }
